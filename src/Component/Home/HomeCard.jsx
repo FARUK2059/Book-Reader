@@ -5,11 +5,11 @@ const HomeCard = ({ allBook }) => {
 
     console.log(allBook);
 
-    const { image, category, bookName, authorName, rating } = allBook;
+    const { image, category, bookName, authorName, rating, bookId } = allBook;
 
     return (
         <div className="border rounded-2xl  p-6 ">
-            <Link to={`/bookDetails/`}>
+            <Link to={`/bookDetails/${bookId}`}>
                 <div className="p-6 ">
                     <div className="grid bg-gray-200 rounded-2xl p-6  justify-center  ">
                         <img className="rounded-3xl h-40" src={image} alt="" />

@@ -13,6 +13,8 @@ import PagestoRead from './Component/PagestoRead/PagestoRead.jsx';
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
 import Blog from './Component/Blog/Blog.jsx';
 import BookDetails from './Component/BookDetails/BookDetails.jsx';
+import ReadBooks from './Component/ListedBooks/ReadBooks.jsx';
+import WishlistBooks from './Component/ListedBooks/WishlistBooks.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/listedBooks",
-        element: <ListedBooks></ListedBooks>
+        element: <ListedBooks></ListedBooks>,
+        children: [
+          {
+            index: true,
+            element: <ReadBooks></ReadBooks>
+          },
+          {
+            path: "wishlistbooks",
+            element: <WishlistBooks></WishlistBooks>
+          }
+        ],
       },
       {
         path: "/pagestoread",
@@ -38,8 +50,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookDetails/:bookId",
+        loader: () => fetch('/public/BookList.json'),
         element: <BookDetails></BookDetails>,
-        loader: () => fetch('https://raw.githubusercontent.com/FARUK2059/jsonfile2059book/main/FJSON')
       }
     ]
   },

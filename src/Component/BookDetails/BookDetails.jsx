@@ -1,10 +1,16 @@
-
+import { useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
 
     const books = useLoaderData();
-        console.log(books);
-        
+    // console.log(books);
+    const {bookId} = useParams();
+    const bookInt = parseInt(bookId);
+    // console.log(bookInt);
+    const book = books?.find((book) => book.bookId === bookInt)
+    console.log(book);
+
+
 
     return (
         <div>
@@ -14,11 +20,3 @@ const BookDetails = () => {
 };
 
 export default BookDetails;
-
-
-
-// const jobs = useLoaderData();
-//     const { id } = useParams();
-//     const idInt = parseInt(id);
-//     const job = jobs.find(job => job.id === idInt)
-//     console.log(job);
