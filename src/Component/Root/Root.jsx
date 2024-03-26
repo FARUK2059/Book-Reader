@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 
 const Root = () => {
     return (
-        <div className='p-2 lg:p-10'>
+        <div className='p-2 lg:p-10 playfair-display-font'>
             <div>
                 <Header></Header>
             </div>
