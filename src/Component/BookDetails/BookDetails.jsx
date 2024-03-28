@@ -1,16 +1,32 @@
+import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveBookStor } from "../../Utility/LocalStordata";
+import { saveWishListBookStor } from "../../Utility/WishList";
 
 const BookDetails = () => {
 
+    const handelAddRead = () => {
+        saveBookStor(bookId);
+    }
+
+    const handlAddWishlist = () => {
+        saveWishListBookStor(bookId);
+        
+    }
+
+    // bookDetails data loaded 
     const books = useLoaderData();
     // console.log(books);
     const { bookId } = useParams();
     const bookInt = parseInt(bookId);
     // console.log(bookInt);
     const book = books?.find((book) => book.bookId === bookInt)
-    console.log(book);
+    // console.log(book);
 
-    const { image, bookName, authorName, category, review, totalPages, publisher, yearOfPublishing, rating } = book
+    const { image, bookName, authorName, category, review, totalPages, publisher, yearOfPublishing, rating, } = book
+
 
     return (
         <div className="grid lg:grid-cols-2 p-4 gap-8 mt-6 mb-6">
@@ -58,9 +74,10 @@ const BookDetails = () => {
                 <br />
                 <br />
                 <div className="flex gap-4">
-                    <button class="btn btn-primary bg-slate-100 text-black">Read</button>
-                    <button class="btn btn-primary bg-[#50B1C9] text-[#FFFFFF]">Wishlist</button>
+                    <button onClick={handelAddRead} class="btn btn-primary bg-slate-100 text-black">Read</button>
+                    <button onClick={handlAddWishlist} class="btn btn-primary bg-[#50B1C9] text-[#FFFFFF]">Wishlist</button>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );
