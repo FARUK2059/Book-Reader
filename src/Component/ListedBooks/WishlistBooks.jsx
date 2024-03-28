@@ -22,7 +22,6 @@ const WishlistBooks = () => {
 
     return (
         <div className="grid p-6 gap-6">
-            <h2>{wishBookListed.length}</h2>
 
         {
             wishBookListed.map(book =>
