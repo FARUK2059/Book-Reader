@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineContactPage } from "react-icons/md";
+import { useLoaderData } from "react-router-dom";
+import { getBookData } from "../../Utility/LocalStordata";
 
 
 const ReadBooks = () => {
+
+    const [readBookListed, setReadBookListed] = useState([]);
+
+    const readBooks = useLoaderData();
+    // console.log(readBooks);
+    useEffect( () => {
+        const storBookId = getBookData();
+        if (readBooks.length > 0) {
+            const readBookListed = readBooks.filter(bookIds => storBookId.includes(bookIds.bookId))
+            // console.log(readBooks, storBookId, readBookListed);
+            setReadBookListed(readBookListed);
+        }
+
+    }, [])
+
     return (
         <div className="p-6">
             <div className="grid lg:grid-cols-4 grid-cols-2 p-4 lg:gap-10 gap-4 border rounded-2xl ">
@@ -12,7 +30,7 @@ const ReadBooks = () => {
 
                 {/* right side  */}
                 <div className="grid lg:col-span-3 my-auto mt-1">
-                    <h2 className="text-[#131313] lg:text-4xl text-lg font-extrabold ">The Catcher in the Rye</h2>
+                    <h2 className="text-[#131313] lg:text-4xl text-lg font-extrabold ">The Catcher in the Rye </h2>
                     <h4 className="text-[#131313cc] font-semibold lg:text-xl text-[16px]  mt-2 mb-2">By : Awlad Hossain</h4>
                     <div className="mt-2 flex gap-10 items-center mb-4">
                         <span className="text-[#131313] font-bold">Tag :</span>

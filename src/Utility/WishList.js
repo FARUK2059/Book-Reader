@@ -41,4 +41,4 @@ const saveWishListBookStor = bookId => {
 
 }
 
-export { getWishListBookData, saveWishListBookStor }
+export { getBookData, getWishListBookData, saveWishListBookStor }

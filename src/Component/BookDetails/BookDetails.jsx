@@ -8,7 +8,7 @@ import { saveWishListBookStor } from "../../Utility/WishList";
 const BookDetails = () => {
 
     const handelAddRead = () => {
-        saveBookStor(bookId);
+        saveBookStor(bookInt);
     }
 
     const handlAddWishlist = () => {
