@@ -15,9 +15,9 @@ const ListedBooks = () => {
                 <div className="dropdown dropdown-bottom ]">
                     <div tabIndex={0} role="button" className="btn m-1 bg-[#23BE0A] text-[#FFFFFF] font-bold text-[18px]">Short By <span><IoIosArrowDown /></span></div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-gray-100 rounded-box w-52">
-                        <li><a>Rating</a></li>
-                        <li><a>Number of pages</a></li>
-                        <li><a>Publishar year</a></li>
+                        <li onClick={() => handlBooksFilter('Rating')} ><a>Rating</a></li>
+                        <li onClick={() => handlBooksFilter('Number of pages')} ><a>Number of pages</a></li>
+                        <li onClick={() => handlBooksFilter('Publishar year')} ><a>Publishar year</a></li>
                     </ul>
                 </div>
             </div>

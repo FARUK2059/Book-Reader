@@ -8,7 +8,7 @@ const HomeBody = () => {
     const [bookList, setbookList] = useState([]);
 
     useEffect(() => {
-        fetch('../../../public/BookList.json')
+        fetch('data.json')
             .then(res => res.json())
             .then(data => setbookList(data));
     }, []);
