@@ -27,7 +27,7 @@ const WishlistBooks = () => {
             wishBookListed.map(book =>
                 <div key={book.bookId}>
 
-                    <div className="grid lg:grid-cols-4 grid-cols-2 p-4 lg:gap-10 gap-4 border rounded-2xl ">
+                    <div className="grid lg:grid-cols-4  p-4 lg:gap-10 gap-4 border rounded-2xl ">
                         <div className="grid lg:col-span-1 rounded-2xl justify-center bg-[#1313130d] p-6 my-auto">
                             <img src={book.image} alt="" />
                         </div>
@@ -36,7 +36,7 @@ const WishlistBooks = () => {
                         <div className="grid lg:col-span-3 my-auto mt-1">
                             <h2 className="text-[#131313] lg:text-4xl text-lg font-extrabold ">{book.bookName}</h2>
                             <h4 className="text-[#131313cc] font-semibold lg:text-xl text-[16px]  mt-2 mb-2">By : {book.authorName}</h4>
-                            <div className="mt-2 flex gap-10 items-center mb-4">
+                            <div className="mt-2 flex lg:gap-10 gap-2 items-center mb-4">
                                 <span className="text-[#131313] font-bold">Tag :</span>
                                 {
                                     book.tags.map((tags) =>
